@@ -1,0 +1,51 @@
+= > /home/students/ai24/gind.alex/Bioinf_term1/practice3/compile.sh < =
+#!/bin/bash
+
+
+for f in $(ls ~/Bioinf_term1/practice3/*.sh)
+do
+	echo "= > $f < ="
+	cat $f
+	echo ""
+done
+
+= > /home/students/ai24/gind.alex/Bioinf_term1/practice3/count_lines.sh < =
+#!/bin/bash
+
+
+SRC="/tmp/ai24_term1_pr3_files"
+FILES="$(ls $SRC/*.txt)"
+for f in $FILES
+do
+        echo "Имя файла: $f"
+        echo "Количество строк: $(wc -l $f | cut -d ' ' -f 1)"
+        echo ""
+done
+
+= > /home/students/ai24/gind.alex/Bioinf_term1/practice3/make_dirs.sh < =
+#!/bin/bash
+
+
+mkdir ./dirs
+for letter in {A..H}
+do
+	mkdir ./dirs/old$letter
+done
+
+= > /home/students/ai24/gind.alex/Bioinf_term1/practice3/rename_dirs.sh < =
+#!/bin/bash
+
+
+for letter in {A..H}
+do
+	old="./dirs/old$letter"
+	new="./dirs/new$letter"
+	if [ ! -f "$old" ]; then
+		mv "$old" "$new"
+	fi
+done
+
+= > /home/students/ai24/gind.alex/Bioinf_term1/practice3/sum_arguments.sh < =
+#!/bin/bash
+echo $(($1 + $2))
+
